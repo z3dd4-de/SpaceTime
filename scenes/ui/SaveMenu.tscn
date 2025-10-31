@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpt3t6s8macs0"]
+
+[ext_resource type="Script" uid="uid://bk6mhw1fy2d0s" path="res://scripts/c-sharp/SaveMenu.cs" id="1_sjvwi"]
+
+[node name="SaveMenu" type="Control" node_paths=PackedStringArray("SlotList", "AddSlotButton")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjvwi")
+SlotList = NodePath("Panel/SlotList")
+AddSlotButton = NodePath("Panel/AddSlotButton")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 517.0
+offset_bottom = 337.0
+
+[node name="SlotList" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="AddSlotButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -31.0
+offset_right = 63.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "New Savegame"

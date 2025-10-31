@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckvsq75k3b4xv"
+path="res://.godot/imported/keypress-020.wav-7ffa55e29aaea6fd876f887d6882e6da.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Single Keys/keypress-020.wav"
+dest_files=["res://.godot/imported/keypress-020.wav-7ffa55e29aaea6fd876f887d6882e6da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://vojisp705c68"]
+
+[ext_resource type="Script" uid="uid://btlmaq2o0d7k" path="res://scripts/c-sharp/Planet.cs" id="1_5l1v6"]
+[ext_resource type="Texture2D" uid="uid://c050u1s033uh8" path="res://gfx/planets/mercury.png" id="2_5l1v6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofgdq"]
+albedo_texture = ExtResource("2_5l1v6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6lc11"]
+material = SubResource("StandardMaterial3D_ofgdq")
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2o5np"]
+radius = 20.0
+
+[node name="Mercury" type="StaticBody3D"]
+script = ExtResource("1_5l1v6")
+_orbitalRadius = 350.0
+surfaceRadius = 20.0
+_surfaceGravity = 9.81
+_dayLength = 200.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6lc11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_2o5np")

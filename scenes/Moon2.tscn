@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6cfk6gsvq7hi"]
+
+[ext_resource type="Script" uid="uid://btlmaq2o0d7k" path="res://scripts/c-sharp/Planet.cs" id="1_irwgl"]
+[ext_resource type="Texture2D" uid="uid://bk0un4nr45s8d" path="res://gfx/moons/moon_texturemap.png" id="2_irwgl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofgdq"]
+albedo_texture = ExtResource("2_irwgl")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6lc11"]
+material = SubResource("StandardMaterial3D_ofgdq")
+radius = 5.0
+height = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2o5np"]
+radius = 20.0
+
+[node name="Moon" type="StaticBody3D"]
+script = ExtResource("1_irwgl")
+_orbitalRadius = 350.0
+surfaceRadius = 20.0
+_surfaceGravity = 9.81
+_dayLength = 200.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6lc11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_2o5np")

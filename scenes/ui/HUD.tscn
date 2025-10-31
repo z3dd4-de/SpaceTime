@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://otpsj561ioq"]
+
+[ext_resource type="Script" uid="uid://cb7yeodfdq6lk" path="res://scripts/ui/HUD.cs" id="1_kw0id"]
+[ext_resource type="Texture2D" uid="uid://dvjeq05nfxtj2" path="res://gfx/ui/target_arrow.png" id="2_atyv1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_kw0id")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_right = 285.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speed"
+fit_content = true
+
+[node name="PositionLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Position"
+fit_content = true
+
+[node name="RotationLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Rotation"
+fit_content = true
+
+[node name="TargetLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Target"
+fit_content = true
+
+[node name="DistanceLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Distance"
+fit_content = true
+
+[node name="TargetArrow" type="TextureRect" parent="."]
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_atyv1")

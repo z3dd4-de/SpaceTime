@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddjnq6oopuui5"]
+
+[ext_resource type="PackedScene" uid="uid://dfy3oalsglt0v" path="res://scenes/ui/main_menu_buttons.tscn" id="1_6jbdy"]
+[ext_resource type="Script" uid="uid://dvkcb1ij2xmrc" path="res://scripts/c-sharp/MainMenu.cs" id="1_iwbf0"]
+[ext_resource type="Texture2D" uid="uid://ddjb781b4cu05" path="res://gfx/backgrounds/full_moon.png" id="2_iwbf0"]
+[ext_resource type="Texture2D" uid="uid://bvu68iclcv1p2" path="res://gfx/backgrounds/full_moon_contrast.png" id="4_xpiny"]
+[ext_resource type="FontFile" uid="uid://cjv8knj1geube" path="res://fonts/star_rust/Star Rust.otf" id="5_bhu4a"]
+[ext_resource type="AudioStream" uid="uid://c5t6hbrp8tcr0" path="res://audio/galactic_temple/GalacticTemple.ogg" id="6_bhu4a"]
+
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("parallax", "background", "foreground", "titleLabel", "mainMenuPanel", "canvasLayer", "settingsPanel", "audioPanel", "videoPanel")]
+script = ExtResource("1_iwbf0")
+parallax = NodePath("Parallax2D")
+background = NodePath("Parallax2D/Background")
+foreground = NodePath("Parallax2D/Background/Forground")
+titleLabel = NodePath("TitleLabel")
+mainMenuPanel = NodePath("CanvasLayer/VBoxContainer")
+canvasLayer = NodePath("CanvasLayer")
+settingsPanel = NodePath("CanvasLayer/SettingsPanel")
+audioPanel = NodePath("CanvasLayer/AudioPanel")
+videoPanel = NodePath("CanvasLayer/VideoPanel")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_6jbdy")]
+visible = false
+
+[node name="ResolutionLabel" type="Label" parent="CanvasLayer/VideoPanel/VBoxContainer/GridContainer" index="6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="CanvasLayer/VideoPanel/VBoxContainer/GridContainer" index="7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+offset_left = -1388.0
+offset_top = -1170.0
+offset_right = 1412.0
+offset_bottom = 1656.0
+texture = ExtResource("2_iwbf0")
+stretch_mode = 6
+
+[node name="Forground" type="TextureRect" parent="Parallax2D/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1400.0
+offset_top = -1413.0
+offset_right = 1400.0
+offset_bottom = 1413.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xpiny")
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 508.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.84705883, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_bhu4a")
+theme_override_font_sizes/normal_font_size = 106
+bbcode_enabled = true
+text = "Space 
+Time"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bhu4a")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[editable path="CanvasLayer"]

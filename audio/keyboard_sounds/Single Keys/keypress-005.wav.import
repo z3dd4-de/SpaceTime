@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://w05vubb86uml"
+path="res://.godot/imported/keypress-005.wav-e4bc563845228640026d2e7d1c5422fa.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Single Keys/keypress-005.wav"
+dest_files=["res://.godot/imported/keypress-005.wav-e4bc563845228640026d2e7d1c5422fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

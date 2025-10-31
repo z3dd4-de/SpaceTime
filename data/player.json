@@ -1,0 +1,11 @@
+{
+	"Save01": {
+		"PlayerName": "Name",
+		"Sex": "Male",
+		"PlayerClass": "Worker",
+		"Age": 20,
+		"Year": "Jan2500",
+		"Credits": 0,
+		"XP": 0
+	}
+}

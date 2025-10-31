@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://dfy3oalsglt0v"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 476.0
+offset_right = 120.0
+offset_bottom = 634.0
+grow_horizontal = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Start new Game"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="MainMenuPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.5
+offset_top = -172.0
+offset_right = 219.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AudioPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -258.0
+offset_right = 402.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -382.0
+offset_top = -241.0
+offset_right = 382.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AudioLabel" type="Label" parent="AudioPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Audio"
+
+[node name="GridContainer" type="GridContainer" parent="AudioPanel/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MainVolumeLabel" type="Label" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Master Volume"
+
+[node name="MainVolumeHSlider" type="HSlider" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicVolumeLabel" type="Label" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music Volume"
+
+[node name="MusicVolumeHSlider" type="HSlider" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SfxVolumeLabel" type="Label" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Effect Volume"
+
+[node name="SfxVolumeHSlider" type="HSlider" parent="AudioPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="AudioBackButton" type="Button" parent="AudioPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -125.0
+offset_right = 244.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsVBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -111.0
+offset_right = 177.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel/SettingsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="AudioButton" type="Button" parent="SettingsPanel/SettingsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Audio"
+
+[node name="VideoButton" type="Button" parent="SettingsPanel/SettingsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Video"
+
+[node name="SettingsBackButton" type="Button" parent="SettingsPanel/SettingsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="VideoPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -194.5
+offset_top = -272.0
+offset_right = 194.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -117.0
+offset_right = 101.5
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoLabel" type="Label" parent="VideoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Video"
+
+[node name="GridContainer" type="GridContainer" parent="VideoPanel/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="BorderlessLabel" type="Label" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Borderless"
+
+[node name="BorderlessCheckButton" type="CheckButton" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="VsyncLabel" type="Label" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Vsync"
+
+[node name="VsyncCheckButton" type="CheckButton" parent="VideoPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="VideoBackButton" type="Button" parent="VideoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"

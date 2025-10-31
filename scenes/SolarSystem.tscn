@@ -1,0 +1,305 @@
+[gd_scene load_steps=20 format=3 uid="uid://bi67jg7ndgns2"]
+
+[ext_resource type="Script" uid="uid://bdf8itf84iovf" path="res://scripts/c-sharp/SolarSystem.cs" id="1_bwlib"]
+[ext_resource type="Texture2D" uid="uid://dvjklwdvaowf3" path="res://gfx/backgrounds/milky_way.jpg" id="2_iy4ij"]
+[ext_resource type="PackedScene" uid="uid://btphmfua4xk54" path="res://scenes/Sun.tscn" id="3_151gp"]
+[ext_resource type="PackedScene" uid="uid://do86qlamdigjk" path="res://scenes/Earth.tscn" id="5_8nmtc"]
+[ext_resource type="PackedScene" uid="uid://c36velgas3n3k" path="res://addons/zylann.atmosphere/planet_atmosphere.tscn" id="7_cy7da"]
+[ext_resource type="PackedScene" uid="uid://bncgfreflkx1b" path="res://scenes/Venus2.tscn" id="8_151gp"]
+[ext_resource type="PackedScene" uid="uid://cktmx47t8a1g7" path="res://scenes/Mars2.tscn" id="8_bwlib"]
+[ext_resource type="PackedScene" uid="uid://vojisp705c68" path="res://scenes/Mercury2.tscn" id="8_iy4ij"]
+[ext_resource type="PackedScene" uid="uid://c6cfk6gsvq7hi" path="res://scenes/Moon2.tscn" id="8_kf4u3"]
+[ext_resource type="Script" uid="uid://bh2444m8uy63x" path="res://scripts/c-sharp/PlayerShipController.cs" id="9_151gp"]
+[ext_resource type="PackedScene" uid="uid://otpsj561ioq" path="res://scenes/ui/HUD.tscn" id="10_kf4u3"]
+[ext_resource type="Shader" uid="uid://dwn7es2mlk136" path="res://addons/zylann.atmosphere/shaders/planet_atmosphere_clouds.gdshader" id="11_l5fhc"]
+[ext_resource type="PackedScene" uid="uid://jrlp6bgswpae" path="res://scenes/ui/PauseMenu.tscn" id="13_l5fhc"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1l3px"]
+panorama = ExtResource("2_iy4ij")
+
+[sub_resource type="Sky" id="Sky_foshw"]
+sky_material = SubResource("PanoramaSkyMaterial_1l3px")
+
+[sub_resource type="Environment" id="Environment_1k6pj"]
+background_mode = 2
+sky = SubResource("Sky_foshw")
+
+[sub_resource type="Gradient" id="Gradient_l5fhc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kfloa"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_4j0ar"]
+noise = SubResource("FastNoiseLite_kfloa")
+color_ramp = SubResource("Gradient_l5fhc")
+
+[node name="SolarSystem" type="Node3D" node_paths=PackedStringArray("planetInfoPanel", "titelLabel", "nameLabel", "inhabitLabel", "diameterLabel", "distanceToParentLabel", "distanceLabel", "orbitLabel", "dayLabel", "moonLabel", "colonieLabel", "miningLabel", "okButton")]
+script = ExtResource("1_bwlib")
+planetInfoPanel = NodePath("CanvasLayer/PlanetInfoPanel")
+titelLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/TitelLabel")
+nameLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/NameValueLabel")
+inhabitLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/InhabitValueLabel")
+diameterLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/DiameterValueLabel")
+distanceToParentLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/DistanceLabel")
+distanceLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/DistanceValueLabel")
+orbitLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/OrbitValueLabel")
+dayLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/DayValueLabel")
+moonLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/MoonsValueLabel")
+colonieLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/ColonizedValueLabel")
+miningLabel = NodePath("CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer/MiningValueLabel")
+okButton = NodePath("CanvasLayer/PlanetInfoPanel/OkButton")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1k6pj")
+
+[node name="Sun" parent="." instance=ExtResource("3_151gp")]
+
+[node name="Mercury" parent="." node_paths=PackedStringArray("_orbitalParent") instance=ExtResource("8_iy4ij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 218.4873)
+_orbitalParent = NodePath("../Sun")
+_orbitalRadius = 100.0
+surfaceRadius = 10.0
+_surfaceGravity = 3.7
+_dayLength = 58.0
+_tidallyLocked = true
+
+[node name="Venus" parent="." node_paths=PackedStringArray("_orbitalParent") instance=ExtResource("8_151gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 373.11395)
+_orbitalParent = NodePath("../Sun")
+_orbitalRadius = 180.0
+surfaceRadius = 18.0
+_surfaceGravity = 8.87
+_dayLength = -5.8
+
+[node name="PlanetAthmosphere" parent="Venus" instance=ExtResource("7_cy7da")]
+planet_radius = 18.0
+atmosphere_height = 12.0
+sun_path = NodePath("../../Sun")
+shader_params/u_density = 0.2
+
+[node name="Earth" parent="." node_paths=PackedStringArray("_orbitalParent") instance=ExtResource("5_8nmtc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 648.7662)
+_orbitalParent = NodePath("../Sun")
+_dayLength = 24.0
+
+[node name="PlanetAthmosphere" parent="Earth" instance=ExtResource("7_cy7da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4203186, -0.765625, -0.26763916)
+planet_radius = 20.0
+atmosphere_height = 20.4
+sun_path = NodePath("../../Sun")
+custom_shader = ExtResource("11_l5fhc")
+clouds_rotation_speed = 0.1
+shader_params/u_density = 0.2
+shader_params/u_scattering_strength = 1.0
+shader_params/u_cloud_density_scale = 0.1
+shader_params/u_cloud_bottom = 0.2
+shader_params/u_cloud_top = 0.6
+shader_params/u_cloud_blend = 0.5
+shader_params/u_cloud_shape_texture = SubResource("NoiseTexture3D_4j0ar")
+shader_params/u_cloud_shape_invert = 0.0
+shader_params/u_cloud_coverage_bias = 0.0
+shader_params/u_cloud_shape_factor = 0.8
+shader_params/u_cloud_shape_scale = 1.0
+shader_params/u_cloud_coverage_cubemap = null
+
+[node name="Moon" parent="." node_paths=PackedStringArray("_orbitalParent") instance=ExtResource("8_kf4u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.601, 0, 561.99396)
+_orbitalParent = NodePath("../Earth")
+_orbitalRadius = 70.0
+_orbitalAngle = 90.0
+surfaceRadius = 5.0
+_surfaceGravity = 1.62
+_dayLength = 0.0
+_tidallyLocked = true
+
+[node name="Mars" parent="." node_paths=PackedStringArray("_orbitalParent") instance=ExtResource("8_bwlib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 821.2271)
+_orbitalParent = NodePath("../Sun")
+_orbitalRadius = 550.0
+_surfaceGravity = 3.73
+_dayLength = 24.6
+
+[node name="PlanetAthmosphere" parent="Mars" instance=ExtResource("7_cy7da")]
+planet_radius = 20.0
+atmosphere_height = 20.2
+sun_path = NodePath("../../Sun")
+shader_params/u_density = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlanetInfoPanel" type="Panel" parent="CanvasLayer"]
+offset_right = 374.0
+offset_bottom = 331.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/PlanetInfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitelLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0.18039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "Planet info:"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Name"
+fit_content = true
+
+[node name="NameValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mars"
+
+[node name="InhabitLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Inhabitants"
+fit_content = true
+
+[node name="InhabitValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1000000"
+
+[node name="DiameterLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Diameter"
+fit_content = true
+
+[node name="DiameterValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "6779 km"
+fit_content = true
+
+[node name="DistanceLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Distance to Sun"
+fit_content = true
+
+[node name="DistanceValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "227.9 MegaKm"
+fit_content = true
+
+[node name="OrbitLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Orbit Period"
+fit_content = true
+
+[node name="OrbitValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "687 days"
+fit_content = true
+
+[node name="DayLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Day Length"
+fit_content = true
+
+[node name="DayValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "24.6 hours"
+fit_content = true
+
+[node name="MoonsLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Moons"
+fit_content = true
+
+[node name="MoonsValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "2"
+fit_content = true
+
+[node name="ColonizedLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Colonized"
+fit_content = true
+
+[node name="ColonizedValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Yes"
+fit_content = true
+
+[node name="MiningLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Mining"
+fit_content = true
+
+[node name="MiningValueLabel" type="RichTextLabel" parent="CanvasLayer/PlanetInfoPanel/VSplitContainer/GridContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[node name="OkButton" type="Button" parent="CanvasLayer/PlanetInfoPanel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -31.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "OK"
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_l5fhc")]
+
+[node name="PlayerCamera" type="Node3D" parent="."]
+script = ExtResource("9_151gp")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCamera"]
+transform = Transform3D(-0.0121686235, -0.9696459, -0.2442104, -0.09512262, -0.24199834, 0.9656027, -0.9953912, 0.034979988, -0.089290485, -112.93283, 506.11902, 4.027527)
+
+[node name="HUD" parent="." instance=ExtResource("10_kf4u3")]
+layer = 10

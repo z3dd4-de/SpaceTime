@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://k6bfa3x8nvbk"]
+
+[ext_resource type="Script" uid="uid://orbvl5dc12cg" path="res://scripts/ui/GameCreation.cs" id="1_3ecrx"]
+[ext_resource type="Texture2D" uid="uid://dvsvvftaas3ca" path="res://gfx/backgrounds/stars-1845140_1920.jpg" id="2_e2n3f"]
+[ext_resource type="AudioStream" uid="uid://c5t6hbrp8tcr0" path="res://audio/galactic_temple/GalacticTemple.ogg" id="3_00a2n"]
+[ext_resource type="PackedScene" path="res://scenes/game_creation/choose_portrait.tscn" id="4_35lq3"]
+
+[node name="GameCreation" type="Node2D"]
+script = ExtResource("1_3ecrx")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(642, 385)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_e2n3f")
+
+[node name="StartScreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_00a2n")
+autoplay = true
+bus = &"Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartPanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -184.0
+offset_right = 156.5
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -148.5
+offset_right = 83.5
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameLabel" type="Label" parent="CanvasLayer/StartPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "New Player"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/StartPanel/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Name"
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Playername"
+
+[node name="SexLabel" type="Label" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sex"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MaleCheckBox" type="CheckBox" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Male"
+
+[node name="FemaleCheckBox" type="CheckBox" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Female"
+
+[node name="OtherCheckBox" type="CheckBox" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Other"
+
+[node name="ClassLabel" type="Label" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Class"
+
+[node name="ClassPropLabel" type="Label" parent="CanvasLayer/StartPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "test"
+
+[node name="OkButton" type="Button" parent="CanvasLayer/StartPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "OK"
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ChoosePortrait" parent="CanvasLayer3" instance=ExtResource("4_35lq3")]
+visible = false
+script = null
+
+[connection signal="text_changed" from="CanvasLayer/StartPanel/VBoxContainer/GridContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="toggled" from="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer/MaleCheckBox" to="." method="_on_male_check_box_toggled"]
+[connection signal="toggled" from="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer/FemaleCheckBox" to="." method="_on_female_check_box_toggled"]
+[connection signal="toggled" from="CanvasLayer/StartPanel/VBoxContainer/GridContainer/VBoxContainer/OtherCheckBox" to="." method="_on_other_check_box_toggled"]
+[connection signal="pressed" from="CanvasLayer/StartPanel/VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]

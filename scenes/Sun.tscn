@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://btphmfua4xk54"]
+
+[ext_resource type="Script" uid="uid://btlmaq2o0d7k" path="res://scripts/c-sharp/Planet.cs" id="1_5fsc2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5fhc"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0.023529412, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kfloa"]
+material = SubResource("StandardMaterial3D_l5fhc")
+radius = 50.0
+height = 100.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4j0ar"]
+radius = 50.0
+
+[node name="Sun" type="StaticBody3D"]
+script = ExtResource("1_5fsc2")
+surfaceRadius = 50.0
+_surfaceGravity = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_kfloa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 1000.0
+omni_attenuation = 0.024
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4j0ar")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0b54d1fq5h0a"
+path="res://.godot/imported/keypress-021.wav-b150f67c20e5cb0082baaad368c5cb36.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Single Keys/keypress-021.wav"
+dest_files=["res://.godot/imported/keypress-021.wav-b150f67c20e5cb0082baaad368c5cb36.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

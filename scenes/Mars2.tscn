@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cktmx47t8a1g7"]
+
+[ext_resource type="Script" uid="uid://btlmaq2o0d7k" path="res://scripts/c-sharp/Planet.cs" id="1_cm0vw"]
+[ext_resource type="Texture2D" uid="uid://swmjkmpglgj2" path="res://gfx/planets/mars_texturemap.png" id="2_cm0vw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofgdq"]
+albedo_texture = ExtResource("2_cm0vw")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6lc11"]
+material = SubResource("StandardMaterial3D_ofgdq")
+radius = 30.0
+height = 60.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2o5np"]
+radius = 20.0
+
+[node name="Mars" type="StaticBody3D"]
+script = ExtResource("1_cm0vw")
+_orbitalRadius = 350.0
+surfaceRadius = 20.0
+_surfaceGravity = 9.81
+_dayLength = 200.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6lc11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2o5np")

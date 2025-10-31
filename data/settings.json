@@ -1,0 +1,12 @@
+{ 
+	"Settings": {
+		"FullScreen": 1,
+		"Vsync": 1,
+		"MasterVolume": 1,
+		"MusicVolume": 1,
+		"SfxVolume": 1,
+		"DefaultMasterVolume": 1,
+		"DefaultMusicVolume": 1,
+		"DefaultSfxVolume": 1
+	}
+}

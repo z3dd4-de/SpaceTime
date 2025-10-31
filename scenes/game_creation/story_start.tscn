@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjm1cfk1rec4s"]
+
+[ext_resource type="Script" uid="uid://dx2ircp16kfvj" path="res://scenes/story_start.gd" id="1_tl3fe"]
+[ext_resource type="AudioStream" uid="uid://4bymql5imndq" path="res://sound/keyboard_sounds/Human Typing/human_vel-010.wav" id="2_e5oti"]
+
+[node name="StoryStart" type="Node2D"]
+script = ExtResource("1_tl3fe")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 795.0
+offset_bottom = 565.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[ul]2052 - Elon Musk dies and spent 500 Billion Dollars on Space Exploration
+2055 - The first 200 inhabitants colonize Moon
+2080 - The first base on Mars is colonized: 1000 humans
+2120 - Earth’s temperature reaches 25°C in average, 2.5 Billion people died so far
+2134 - Earth’s population drops below 5 Billion
+2137 - Earth’s population drops below 4 Billion
+2142 - Massive evacuation: >10k humans on Moon, >2M humans on Mars
+2157 - Earth’s temperature reaches 30°C in average, 2.5 Billion people are left
+2207 - 1M humans live on Moon, 7.5M on Mars
+2235 - Humans cannot live on Earth any longer, as it exceeds 35°C surface temperature in average
+2247 - Elon’s spirit takes over Musk 2.0, a General Artificial Intelligence 
+2282 - Europa (Moon of Jupiter) is colonized
+2305 - The first space station in the Kuiper belt is established
+2400 - Milestone: 55M humans survived Earth’s death
+2409 - Mars is the primary factory for spacecrafts for the solar system
+2455 - Speed record for human spaceships: 0.01% c 
+2455 - WTF, we can’t leave the solar system, nor exploring the galaxy![/ul]
+"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="OkButton" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "OK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e5oti")
+bus = &"Sound"
+playback_type = 1
+
+[connection signal="pressed" from="PanelContainer/OkButton" to="." method="_on_ok_button_pressed"]

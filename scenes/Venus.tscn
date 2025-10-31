@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmnhmjn43i52s"]
+
+[ext_resource type="Script" uid="uid://btlmaq2o0d7k" path="res://scripts/c-sharp/Planet.cs" id="1_gyq7v"]
+[ext_resource type="Texture2D" uid="uid://6hhfsflu25nu" path="res://gfx/planets/venus.png" id="2_k0cy4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebuxh"]
+albedo_texture = ExtResource("2_k0cy4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_k8yst"]
+material = SubResource("StandardMaterial3D_ebuxh")
+radius = 40.0
+height = 80.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cy7da"]
+
+[node name="Venus" type="StaticBody3D" node_paths=PackedStringArray("_orbitalParent")]
+script = ExtResource("1_gyq7v")
+_orbitalParent = NodePath("")
+_orbitalRadius = 250.0
+surfaceRadius = 40.0
+_surfaceGravity = 8.0
+_dayLength = 160.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_k8yst")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_cy7da")

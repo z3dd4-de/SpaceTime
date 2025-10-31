@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dip1go6pm3f5x"
+path="res://.godot/imported/human_vel-010.wav-9017d4646ba65db921caca32e4e18a13.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Human Typing/human_vel-010.wav"
+dest_files=["res://.godot/imported/human_vel-010.wav-9017d4646ba65db921caca32e4e18a13.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

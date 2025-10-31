@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://caq5pntg1s6yx"]
+
+[ext_resource type="PackedScene" path="res://scenes/game_creation/story_start.tscn" id="1_ehoar"]
+
+[node name="GameCreation2" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StoryStart2" parent="CanvasLayer" instance=ExtResource("1_ehoar")]
+script = null
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(649, 383)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(385, 363)
+scale = Vector2(0.5, 0.5)

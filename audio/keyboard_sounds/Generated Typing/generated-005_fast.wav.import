@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bla8c7nwgexd8"
+path="res://.godot/imported/generated-005_fast.wav-78b0a70553221753fba5d4656762bdf5.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Generated Typing/generated-005_fast.wav"
+dest_files=["res://.godot/imported/generated-005_fast.wav-78b0a70553221753fba5d4656762bdf5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

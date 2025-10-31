@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bef4idyw7jgsp"
+path="res://.godot/imported/generated-007_irregular.wav-c33df1120dd4354634e67d7209bbc6f1.sample"
+
+[deps]
+
+source_file="res://audio/keyboard_sounds/Generated Typing/generated-007_irregular.wav"
+dest_files=["res://.godot/imported/generated-007_irregular.wav-c33df1120dd4354634e67d7209bbc6f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -22,6 +22,8 @@ As you are getting older, you want to have a partner, marry, get children.
 
 Because when you are too old and have no children, the game is over.
 
+# Screenshots
+![The start screen is animated and has video and audio setup](start_screen.png)
 ![A working 3D version of our solar system](solar_system_md.png)
 
 # Current status

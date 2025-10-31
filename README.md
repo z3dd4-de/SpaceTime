@@ -23,7 +23,7 @@ As you are getting older, you want to have a partner, marry, get children.
 Because when you are too old and have no children, the game is over.
 
 # Current status
-- No story yet
++ No story yet
 + Main menu available with video and audio settings
 + Character creation
 + Massive use of AI images ;-)
@@ -31,9 +31,9 @@ Because when you are too old and have no children, the game is over.
 + Save game, save game settings (JSON used)
 + Characters can be male, female, gay, transgender
 + Round based: travelling eats up your live expectancy
-(+) Planned: genomes for mating
-(+) Skill system prepared
-(+) Mining of asteroids prepared
++(+) Planned: genomes for mating
++(+) Skill system prepared
++(+) Mining of asteroids prepared
 
 # Planned
 A lot, just started with this project :D

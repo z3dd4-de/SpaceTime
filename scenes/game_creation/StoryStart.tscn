@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://huq4bcfbphp6"]
+[gd_scene load_steps=3 format=3 uid="uid://huq4bcfbphp6"]
 
 [ext_resource type="AudioStream" uid="uid://dip1go6pm3f5x" path="res://audio/keyboard_sounds/Human Typing/human_vel-010.wav" id="1_4hhj1"]
+[ext_resource type="Script" uid="uid://bgydsi32oe48l" path="res://scripts/ui/StoryStart.cs" id="1_5wkuv"]
 
 [node name="StoryStart" type="Node2D"]
+script = ExtResource("1_5wkuv")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 795.0

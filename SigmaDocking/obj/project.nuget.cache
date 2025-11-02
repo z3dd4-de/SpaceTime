@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DLxRjKwjtvc=",
+  "success": true,
+  "projectFilePath": "Q:\\Godot\\SolarSystem\\space-time\\SpaceTime\\SigmaDocking\\SigmaDocking.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fukc-\\.nuget\\packages\\libusbdotnet\\3.0.102-alpha\\libusbdotnet.3.0.102-alpha.nupkg.sha512"
+  ],
+  "logs": []
+}

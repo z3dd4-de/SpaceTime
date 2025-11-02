@@ -1,5 +1,5 @@
 # SpaceTime
-## My first Godot 4.5 C# Project
+## A Solar System Simulation in Godot 4.5 C#
 ### Preface
 I'm learning Godot since around two years and started with some little projects like Yatzee (German Kniffel) and Breakout. A big project was also an RPG with isometric graphics.
 

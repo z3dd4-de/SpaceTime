@@ -4,4 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LibUsbDotNet" Version="3.0.102-alpha" />
+  </ItemGroup>
 </Project>

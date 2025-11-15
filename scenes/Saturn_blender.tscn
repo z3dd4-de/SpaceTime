@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://diqv7u5xwrx53"]
+
+[ext_resource type="PackedScene" uid="uid://3l42r3mjqlit" path="res://3dmodels/saturn.glb" id="1_ls0jo"]
+[ext_resource type="Texture2D" uid="uid://dvjklwdvaowf3" path="res://gfx/backgrounds/milky_way.jpg" id="2_mrdpr"]
+[ext_resource type="Script" uid="uid://b70ffy5lhsfsu" path="res://scripts/c-sharp/PlanetRotation.cs" id="3_c1qtu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c1qtu"]
+panorama = ExtResource("2_mrdpr")
+
+[sub_resource type="Sky" id="Sky_g2837"]
+sky_material = SubResource("PanoramaSkyMaterial_c1qtu")
+
+[sub_resource type="Environment" id="Environment_qwwq3"]
+background_mode = 2
+sky = SubResource("Sky_g2837")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c1qtu"]
+
+[node name="Saturn" type="StaticBody3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qwwq3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.5737, 291.75397, 1162.7454)
+omni_range = 1000.0
+omni_attenuation = 0.24
+
+[node name="saturn" parent="." instance=ExtResource("1_ls0jo")]
+script = ExtResource("3_c1qtu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -314.6655, 99.78139, 1550.0935)
+h_offset = 320.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_c1qtu")

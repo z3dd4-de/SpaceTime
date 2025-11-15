@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://6vdbt2xbw7yl"]
+
+[ext_resource type="PackedScene" uid="uid://crw5jl5akivsv" path="res://3dmodels/earth.glb" id="1_728f7"]
+[ext_resource type="Texture2D" uid="uid://dvjklwdvaowf3" path="res://gfx/backgrounds/milky_way.jpg" id="2_wrcj7"]
+[ext_resource type="Script" uid="uid://b70ffy5lhsfsu" path="res://scripts/c-sharp/PlanetRotation.cs" id="3_wrcj7"]
+[ext_resource type="PackedScene" uid="uid://c36velgas3n3k" path="res://addons/zylann.atmosphere/planet_atmosphere.tscn" id="4_y6h84"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y6h84"]
+panorama = ExtResource("2_wrcj7")
+
+[sub_resource type="Sky" id="Sky_qyaxj"]
+sky_material = SubResource("PanoramaSkyMaterial_y6h84")
+
+[sub_resource type="Environment" id="Environment_gtcmo"]
+background_mode = 2
+sky = SubResource("Sky_qyaxj")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y6h84"]
+
+[node name="Earth" type="StaticBody3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gtcmo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.47812, 73.82683, 926.07764)
+omni_range = 1000.0
+omni_attenuation = 0.24
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -314.6655, 99.78139, 1550.0935)
+h_offset = 320.0
+
+[node name="PlanetAthmosphere" parent="." instance=ExtResource("4_y6h84")]
+planet_radius = 518.63
+atmosphere_height = 2.885
+sun_path = NodePath("../OmniLight3D")
+
+[node name="earth" parent="." instance=ExtResource("1_728f7")]
+script = ExtResource("3_wrcj7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_y6h84")

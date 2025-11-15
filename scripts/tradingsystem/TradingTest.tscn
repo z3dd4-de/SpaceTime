@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0wpfbb3wuk4w"]
+
+[ext_resource type="Script" uid="uid://cg1smm3lkbyt7" path="res://scripts/tradingsystem/TestTrading.cs" id="1_qk26s"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_qk26s")

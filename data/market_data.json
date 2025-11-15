@@ -1,0 +1,32 @@
+{
+  "Resources": [
+	{
+	  "Id": "oxygen",
+	  "Name": "Sauerstoff",
+	  "BasePrice": 50,
+	  "Category": "gas",
+	  "Description": "Lebensnotwendiges Gas"
+	},
+	{
+	  "Id": "water",
+	  "Name": "Wasser",
+	  "BasePrice": 30,
+	  "Category": "liquid",
+	  "Description": "H2O f\u00FCr Kolonisten"
+	},
+	{
+	  "Id": "iron",
+	  "Name": "Eisen",
+	  "BasePrice": 100,
+	  "Category": "metal",
+	  "Description": "Grundlegendes Baumaterial"
+	},
+	{
+	  "Id": "food",
+	  "Name": "Nahrung",
+	  "BasePrice": 80,
+	  "Category": "consumable",
+	  "Description": "Lebensmittel"
+	}
+  ]
+}

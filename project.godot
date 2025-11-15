@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlanetData="*res://scripts/c-sharp/PlanetData.cs"
 GameState="*res://scripts/c-sharp/GameState.cs"
 SceneManager="*res://scripts/managers/SceneManager.cs"
+TradingSystem="*res://scripts/tradingsystem/TradingSystem.cs"
 
 [dotnet]
 

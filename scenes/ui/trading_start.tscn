@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://br2mbg1rtarj2"]
+
+[ext_resource type="Script" uid="uid://ef88pantxp54" path="res://scripts/tradingsystem/TradingTrigger.cs" id="1_xuxfd"]
+[ext_resource type="Texture2D" uid="uid://u4cnw3axe731" path="res://gfx/skills/trading.png" id="2_q5nop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvfc"]
+size = Vector2(64, 64)
+
+[node name="TradingStart" type="Area2D"]
+script = ExtResource("1_xuxfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q5nop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ivvfc")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://x4f2fft4i7y1"]
+
+[ext_resource type="PackedScene" uid="uid://br2mbg1rtarj2" path="res://scenes/ui/trading_start.tscn" id="1_mo4bm"]
+[ext_resource type="PackedScene" uid="uid://bj5ttrv21v386" path="res://scenes/ui/trading_ui.tscn" id="2_epiyt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TradingStart" parent="." instance=ExtResource("1_mo4bm")]
+position = Vector2(1106, 607)
+TradingUIPath = NodePath("../TradingUI")
+
+[node name="TradingUI" parent="." instance=ExtResource("2_epiyt")]
+visible = false

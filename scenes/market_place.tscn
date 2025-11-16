@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmhqadem7k4m0"]
+
+[ext_resource type="Script" uid="uid://bp0d1mnbyl5of" path="res://scripts/tradingsystem/MarketPlace.cs" id="1_2cug2"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_2cug2")
+MarketName = "Teststation Alpha"

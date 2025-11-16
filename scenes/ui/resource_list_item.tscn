@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bghqi56wvuokb"]
+
+[ext_resource type="Script" uid="uid://c4s1ocrjl51h2" path="res://scripts/tradingsystem/ResourceListItem.cs" id="1_ycqj5"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ycqj5")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AmountLabel" type="Label" parent="HBox"]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="HBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="HBox"]
+layout_mode = 2
+text = "→"

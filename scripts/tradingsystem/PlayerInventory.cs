@@ -1,4 +1,4 @@
-// PlayerInventory.cs - Spieler-Inventar
+// PlayerInventory.cs - ERWEITERT mit GetAllCargo
 using Godot;
 using System.Collections.Generic;
 
@@ -27,6 +27,10 @@ public partial class PlayerInventory : Node
         }
         
         cargo[resourceId] -= amount;
+        if (cargo[resourceId] == 0)
+        {
+            cargo.Remove(resourceId);
+        }
         GD.Print($"Cargo: -{amount} {resourceId}");
         return true;
     }
@@ -34,6 +38,11 @@ public partial class PlayerInventory : Node
     public int GetCargoAmount(string resourceId)
     {
         return cargo.ContainsKey(resourceId) ? cargo[resourceId] : 0;
+    }
+    
+    public Dictionary<string, int> GetAllCargo()
+    {
+        return new Dictionary<string, int>(cargo);
     }
     
     public bool AddCredits(int amount)

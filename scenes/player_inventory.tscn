@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbilno8lond18"]
+
+[ext_resource type="Script" uid="uid://b7ublsr4arkp4" path="res://scripts/tradingsystem/PlayerInventory.cs" id="1_dmp4w"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_dmp4w")

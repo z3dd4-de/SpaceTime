@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c68exyyscmruj"]
+
+[ext_resource type="PackedScene" uid="uid://bbilno8lond18" path="res://scenes/player_inventory.tscn" id="1_6q6j8"]
+[ext_resource type="PackedScene" uid="uid://cmhqadem7k4m0" path="res://scenes/market_place.tscn" id="2_kj0hh"]
+[ext_resource type="PackedScene" uid="uid://bj5ttrv21v386" path="res://scenes/ui/trading_ui.tscn" id="3_mfybs"]
+[ext_resource type="Texture2D" uid="uid://u4cnw3axe731" path="res://gfx/skills/trading.png" id="4_yvt7w"]
+[ext_resource type="Script" uid="uid://ef88pantxp54" path="res://scripts/tradingsystem/TradingTrigger.cs" id="5_6eeql"]
+[ext_resource type="Texture2D" uid="uid://cet52cf4ttohk" path="res://gfx/spaceship/alienspaceship.png" id="6_051vv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuy4m"]
+size = Vector2(68, 67.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_112pl"]
+radius = 34.0
+height = 106.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerInventory" parent="." instance=ExtResource("1_6q6j8")]
+
+[node name="MarketPlace" parent="." instance=ExtResource("2_kj0hh")]
+
+[node name="TradingUI" parent="." instance=ExtResource("3_mfybs")]
+
+[node name="TradingStation" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TradingStation"]
+position = Vector2(1107, 604)
+texture = ExtResource("4_yvt7w")
+
+[node name="Area2D" type="Area2D" parent="TradingStation"]
+script = ExtResource("5_6eeql")
+MarketPlacePath = NodePath("../../MarketPlace")
+TradingUIPath = NodePath("../../TradingUI")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TradingStation/Area2D"]
+position = Vector2(1107, 604.25)
+shape = SubResource("RectangleShape2D_kuy4m")
+
+[node name="TestPlayer" type="CharacterBody2D" parent="TradingStation"]
+
+[node name="Sprite2D" type="Sprite2D" parent="TradingStation/TestPlayer"]
+position = Vector2(1026.625, 438.875)
+scale = Vector2(0.12927234, 0.13202871)
+texture = ExtResource("6_051vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TradingStation/TestPlayer"]
+position = Vector2(1027, 438)
+shape = SubResource("CapsuleShape2D_112pl")

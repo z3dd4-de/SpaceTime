@@ -13,6 +13,28 @@ public partial class MarketPlace : Node
     public override void _Ready()
     {
         GD.Print($"MarketPlace '{MarketName}' initialisiert");
+        base._Ready();
+    
+        // Test-Daten hinzufügen
+        CallDeferred(nameof(InitializeTestData));
+    }
+
+    private void InitializeTestData()
+    {
+        var tradingSystem = TradingSystem.Instance;
+        if (tradingSystem == null) return;
+        
+        tradingSystem.RegisterMarket(this);
+        
+        // Stock hinzufügen
+        Inventory.AddStock("oxygen", 500);
+        Inventory.SetDemand("oxygen", 100);
+        
+        Inventory.AddStock("water", 300);
+        Inventory.SetDemand("water", 150);
+        
+        Inventory.AddStock("iron", 200);
+        Inventory.SetDemand("iron", 50);
     }
     
     public void RegisterResource(Resource resource)
